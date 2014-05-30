@@ -1,0 +1,4 @@
+setuptools
+simplejson
+requests
+requests_oauthlib

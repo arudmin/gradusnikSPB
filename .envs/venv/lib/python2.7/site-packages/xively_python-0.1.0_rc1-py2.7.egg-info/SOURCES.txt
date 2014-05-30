@@ -1,0 +1,15 @@
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+xively/__init__.py
+xively/api.py
+xively/client.py
+xively/managers.py
+xively/models.py
+xively_python.egg-info/PKG-INFO
+xively_python.egg-info/SOURCES.txt
+xively_python.egg-info/dependency_links.txt
+xively_python.egg-info/not-zip-safe
+xively_python.egg-info/requires.txt
+xively_python.egg-info/top_level.txt

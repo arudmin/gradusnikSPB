@@ -58,7 +58,7 @@ def add_data_to_avatar(temp,hum):
 	font_time = ImageFont.truetype("files/Arial.ttf", 11)
 	draw.text((270, 50), str(temp) + "'", font=font_temp, fill=(0,0,0,255))
 	# draw.text((20, 50), str(temp) + "'C", font=font_time, fill=(0,0,0,255))
-	draw.text((10, 385), '°updated: ' + str(now), font=font_time, fill=(170,170,170,255))
+	draw.text((10, 385), 'updated: ' + str(now), font=font_time, fill=(170,170,170,255))
 	im.save(tmp, "JPEG")
 	#update twitter avatar and remove tmp file
 	twitter.update_profile_image(filename=tmp)

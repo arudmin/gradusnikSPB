@@ -9,6 +9,7 @@ You will need to install the following modules for python
 > sudo easy_install pip
 
 > sudo pip install beautifulsoup4 tweepy config python-xively
+> sudo aptitude install -y libjpeg8-dev
+> sudo pip install pillow
 
-> sudo pip install pil --allow-external pil --allow-unverified pil
-
+tested on raspberry pi

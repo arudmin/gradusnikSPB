@@ -1,10 +1,14 @@
 gradusnikSPB
 ============
 
-Twitter Bot @GradusnikSPB
+Twitter Bot @GradusnikSPB with uploading data to Xively (COSM) Service
 
 ### Installation
 
+You will need to install the following modules for python
 > sudo easy_install pip
 
-> sudo pip install pil html5lib sh lxml beautifulsoup4 tweepy config xively
+> sudo pip install html5lib sh beautifulsoup4 tweepy config xively
+
+> sudo pip install pil --allow-external pil --allow-unverified pil
+

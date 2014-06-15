@@ -10,9 +10,8 @@ from config import *
 from PIL import Image, ImageFont, ImageDraw
 
 __DIR__  = os.path.dirname(os.path.abspath(__file__))
-print __DIR__ 
 host	 = 'http://pogoda.mail.ru'
-img_name = 'files/weather.jpg'
+img_name = __DIR__+'/files/weather.jpg'
 # get page source
 page  	 = urlopen(host + '/prognoz/sankt_peterburg/').read()
 soup 	 = BeautifulSoup(page)
@@ -49,14 +48,14 @@ def check_img_filesize():
 
 def add_data_to_avatar(temp,hum):
 	now  = datetime.datetime.now().ctime()
-	im   = Image.open('files/avatar.jpg')
-	tmp  = 'files/avatar_updated.jpg'
+	im   = Image.open(__DIR__+'/files/avatar.jpg')
+	tmp  = __DIR__+'/files/avatar_updated.jpg'
 	draw = ImageDraw.Draw(im)
 	# use a bitmap font
 	# font = ImageFont.load("arial.pil")
 	# font_temp = ImageFont.truetype("Arial.ttf",50)
-	font_temp = ImageFont.truetype("files/myriadpro-regural.otf", 80)
-	font_time = ImageFont.truetype("files/Arial.ttf", 11)
+	font_temp = ImageFont.truetype(__DIR__+"/files/myriadpro-regural.otf", 80)
+	font_time = ImageFont.truetype(__DIR__+"/files/Arial.ttf", 11)
 	draw.text((270, 50), str(temp) + "'", font=font_temp, fill=(0,0,0,255))
 	# draw.text((20, 50), str(temp) + "'C", font=font_time, fill=(0,0,0,255))
 	draw.text((10, 385), 'updated: ' + str(now), font=font_time, fill=(170,170,170,255))
@@ -68,7 +67,7 @@ def add_data_to_avatar(temp,hum):
 
 def get_data_from_DHT():
 	# function to read the temperature from DHT11 temperature sensor:
-	cmd  = './readDHT 11 4'
+	cmd  = __DIR__+'/readDHT 11 4'
 	data = os.popen(cmd).readline().split(",")
 	temp = data[0].split(" ")[2]
 	hum  = data[1].split(" ")[3]

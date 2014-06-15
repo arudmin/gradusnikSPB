@@ -7,9 +7,10 @@ from bs4 import BeautifulSoup
 from urllib2 import urlopen
 from urllib import urlretrieve
 from config import *
-from lxml.html import parse
 from PIL import Image, ImageFont, ImageDraw
 
+__DIR__  = os.path.dirname(os.path.abspath(__file__))
+print __DIR__ 
 host	 = 'http://pogoda.mail.ru'
 img_name = 'files/weather.jpg'
 # get page source

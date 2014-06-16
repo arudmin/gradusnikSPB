@@ -1,0 +1,5 @@
+# Root
+
+0,30	*	* * * /home/pi/code/gradusnikSPB/twitter.py > /dev/null 2>&1
+*/2	* 	* * * /home/pi/code/gradusnikSPB/xively-upd.py > /dev/null 2>&1
+*/2	*	* * * /home/pi/.check_config.sh > /dev/null 2>&1

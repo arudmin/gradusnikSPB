@@ -3,24 +3,27 @@
 
 # Xively Client for Raspberry Pi and DHT11
 # https://xively.com/dev/tutorials/pi/
-# crontab [sudo] */2 * * * * cd /PATH/TO/FILES && ./update_xively.py > /dev/null
+# crontab [sudo] */2 * * * * cd /PATH/TO/FILES && ./xively-upd.py > /dev/null > 2&1
 
 import os
-import sys
+# import sys
 import xively
-import subprocess
-import time
+# import time
 import datetime
-import requests
 from config import *
+# import subprocess
+# import requests
 
-# initialize api client
+## initialize api client
 api = xively.XivelyAPIClient(XIVELY_API_KEY)
-status = 0
-if len(sys.argv) > 1:
-	status=sys.argv[1]
 
-cmd  = './readDHT 11 4'
+# status = 0
+# if len(sys.argv) > 1:
+# 	status=sys.argv[1]
+
+__DIR__  = os.path.dirname(os.path.abspath(__file__))
+
+cmd  = __DIR__+'/readDHT 11 4'
 data = os.popen(cmd).readline().split(",")
 temp = data[0].split(" ")[2]
 hum  = data[1].split(" ")[3]

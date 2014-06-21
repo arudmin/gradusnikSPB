@@ -10,17 +10,20 @@ from config import *
 from PIL import Image, ImageFont, ImageDraw
 
 __DIR__  = os.path.dirname(os.path.abspath(__file__))
-host	 = 'http://pogoda.mail.ru'
+host	 = 'http://pogoda.mail.ru/prognoz/sankt_peterburg/'
+host2	 = 'http://weather.rambler.ru/v-sankt-peterburge/'
 img_name = __DIR__+'/files/weather.jpg'
 # get page source
-page  	 = urlopen(host + '/prognoz/sankt_peterburg/').read()
+page  	 = urlopen(host2).read()
 soup 	 = BeautifulSoup(page)
-# parse div with img url
-src  	 = soup.find('div', 'block_forecast')
-# get url to image
-bg_url 	 = host + src.get('style').split("'")[1]
-#get weather type ;-)
-weather  = bg_url.split('/')[-1].split('.')[0]
+bg_url	 = soup.find('div','b-day_main').find('div','b-day__bg').get('data-bgurl')
+
+## parse div with img url
+# src  	 = soup.find('div', 'block_forecast')
+## get url to image
+# bg_url 	 = host + src.get('style').split("'")[1]
+## get weather type ;-)
+# weather  = bg_url.split('/')[-1].split('.')[0]
 
 #auth in Twitter
 auth = tweepy.OAuthHandler(TWEEPY_CONSUMER_KEY, TWEEPY_CONSUMER_SECRET)
@@ -42,6 +45,8 @@ def check_img_filesize():
 		urlretrieve(bg_url, img_name)
 		#update twitter banner
 		twitter.update_profile_banner(filename=img_name)
+		twitter.update_profile_background_image(filename=img_name, use=True, include_entities=True)
+
 		return 1
 	else:
 		return 0

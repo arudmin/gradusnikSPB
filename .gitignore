@@ -1,3 +1,4 @@
+.envs
 files/weather.jpg
 config.*
 *.pyc

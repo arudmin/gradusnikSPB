@@ -1,0 +1,10 @@
+Metadata-Version: 1.0
+Name: xively-python
+Version: 0.1.0-rc1
+Summary: Xively API wrapper
+Home-page: http://github.com/xively/xively-python
+Author: UNKNOWN
+Author-email: UNKNOWN
+License: UNKNOWN
+Description: This is the official pythonic wrapper library for the Xively V2 API.
+Platform: UNKNOWN

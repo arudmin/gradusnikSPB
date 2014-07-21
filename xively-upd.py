@@ -1,7 +1,7 @@
-#!/usr/bin/env python
+#!venv/bin/python
 # -*- coding: utf-8 -*-
 
-# Xively Client for Raspberry Pi and DHT11
+# Xively Client for Raspberry Pi and DHTxx controller
 # https://xively.com/dev/tutorials/pi/
 # crontab [sudo] */2 * * * * cd /PATH/TO/FILES && ./xively-upd.py > /dev/null > 2&1
 

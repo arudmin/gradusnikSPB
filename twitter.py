@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!venv/bin/python
 # -*- coding: utf-8 -*- 
 
 import os, datetime
@@ -36,7 +36,7 @@ def check_img_filesize():
 	meta = img.info()
 	img_online_filesize = meta.getheaders("Content-Length")[0]
 
-	f = open(img_name, "r")
+	f = open(img_name, "rw")
 	img_offline_filesize = len(f.read())
 	f.close()
 	# print "Content-Length:", img_online_filesize, img_offline_filesize

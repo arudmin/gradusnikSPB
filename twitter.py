@@ -83,8 +83,9 @@ def get_data_from_DHT():
 
 def send_twitter_message():
 	temp, hum = get_data_from_DHT()
+	media = '/home/www/now.jpg'
 	msgRu = 'В Санкт-Петербурге температура сейчас '+str(temp)+'°C, относительная влажность воздуха '+str(hum)+'%.\n#погода #градусник #питер #спб'
-	twitter.update_status(msgRu, lat='59.867157', long='30.457755')
+	twitter.update_with_media(filename=media, status=msgRu, lat='59.867157', long='30.457755')
 	add_data_to_avatar(temp, hum)
 	check_img_filesize()
 	return 0

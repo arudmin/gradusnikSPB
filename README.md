@@ -11,8 +11,14 @@ You will need to install the following modules for python
 
 > sudo easy_install pip
 
-> sudo pip install beautifulsoup4 tweepy config xively-python
+> sudo pip install virtualenv
 
-> sudo pip install pillow
+> virtualenv venv
+
+> source venv/bin/activate
+
+> pip install beautifulsoup4 tweepy config xively-python
+
+> pip install pillow
 
 tested on raspberry pi

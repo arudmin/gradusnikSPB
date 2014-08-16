@@ -6,8 +6,9 @@ Twitter Bot @GradusnikSPB with uploading data to Xively (COSM) Service
 ### Installation
 
 You will need to install the following modules for python
+> cd TO_THE_GRAUSNIKSPB_PATH
 
-> sudo aptitude install -y libjpeg8-dev python-dev
+> sudo aptitude install -y libjpeg8-dev python-setuptools
 
 > sudo easy_install pip
 
@@ -17,6 +18,6 @@ You will need to install the following modules for python
 
 > source venv/bin/activate
 
-> pip install beautifulsoup4 tweepy config xively-python pillow
+> pip install beautifulsoup4 tweepy config xively-python pillow --pre
 
 tested on raspberry pi

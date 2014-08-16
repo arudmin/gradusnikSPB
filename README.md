@@ -7,7 +7,7 @@ Twitter Bot @GradusnikSPB with uploading data to Xively (COSM) Service
 
 You will need to install the following modules for python
 
-> sudo aptitude install -y libjpeg8-dev python-dev
+> sudo aptitude install -y libjpeg8-dev python-setuptools
 
 > sudo easy_install pip
 

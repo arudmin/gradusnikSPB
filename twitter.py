@@ -13,6 +13,7 @@ __DIR__  = os.path.dirname(os.path.abspath(__file__))
 host	 = 'http://pogoda.mail.ru/prognoz/sankt_peterburg/'
 host2	 = 'http://weather.rambler.ru/v-sankt-peterburge/'
 img_name = __DIR__+'/files/weather.jpg'
+twi_media = '/home/www/now.jpg'
 # get page source
 page  	 = urlopen(host2).read()
 soup 	 = BeautifulSoup(page)
@@ -36,7 +37,7 @@ def check_img_filesize():
 	meta = img.info()
 	img_online_filesize = meta.getheaders("Content-Length")[0]
 
-	f = open(img_name, "rw")
+	f = open(img_name, "w+")
 	img_offline_filesize = len(f.read())
 	f.close()
 	# print "Content-Length:", img_online_filesize, img_offline_filesize
@@ -83,9 +84,12 @@ def get_data_from_DHT():
 
 def send_twitter_message():
 	temp, hum = get_data_from_DHT()
-	media = '/home/www/now.jpg'
+	#media = '/home/www/now.jpg'
 	msgRu = 'В Санкт-Петербурге температура сейчас '+str(temp)+'°C, относительная влажность воздуха '+str(hum)+'%.\n#погода #градусник #питер #спб'
-	twitter.update_with_media(filename=media, status=msgRu, lat='59.867157', long='30.457755')
+	if os.path.isfile(twi_media):
+		twitter.update_with_media(filename=twi_media, status=msgRu, lat='59.867157', long='30.457755')
+	else:
+		twitter.update_status(status=msgRu, lat='59.867157', long='30.457755')
 	add_data_to_avatar(temp, hum)
 	check_img_filesize()
 	return 0
